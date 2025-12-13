@@ -5,22 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>Shreejit Ventures LLP - Elite Wealth Management for HNI Clients</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-            background: #fff;
+        :root {
+            --primary-navy: #1e3455;
+            --secondary-navy: #2d4a73;
+            --accent-orange: #f4a261;
+            --accent-red: #e76f51;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
         }
         
-        /* Header & Navigation */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 25px rgba(37, 211, 102, 0.5);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Header */
         header {
             background: rgba(30, 52, 85, 0.98);
             backdrop-filter: blur(10px);
@@ -54,15 +102,10 @@
             transition: transform 0.3s;
         }
         
-        .logo-container img:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-        
         .logo-text {
             font-size: 1.3rem;
             font-weight: 700;
             letter-spacing: 1px;
-            color: white;
         }
         
         .nav-links {
@@ -76,9 +119,7 @@
             text-decoration: none;
             transition: all 0.3s;
             font-weight: 500;
-            font-size: 1.05rem;
             position: relative;
-            letter-spacing: 0.5px;
         }
         
         .nav-links a::after {
@@ -88,7 +129,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(to right, #f4a261, #e76f51);
+            background: var(--accent-orange);
             transition: width 0.3s;
         }
         
@@ -96,7 +137,7 @@
             width: 100%;
         }
         
-        /* Hero Section - Elegant Design */
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #1e3455 0%, #2d4a73 50%, #1e3455 100%);
             color: white;
@@ -114,8 +155,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(244, 162, 97, 0.08) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 70%, rgba(231, 111, 81, 0.08) 0%, transparent 60%);
+            background: radial-gradient(circle at 30% 40%, rgba(244, 162, 97, 0.08) 0%, transparent 60%);
         }
         
         .hero-content {
@@ -134,9 +174,6 @@
             padding: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             animation: fadeInScale 1s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
         .hero-logo-icon img {
@@ -155,8 +192,6 @@
             font-weight: 900;
             letter-spacing: 8px;
             margin-bottom: 1rem;
-            color: white;
-            text-transform: uppercase;
             animation: fadeInUp 1s ease 0.2s backwards;
         }
         
@@ -173,7 +208,7 @@
         .hero-divider {
             width: 100px;
             height: 3px;
-            background: linear-gradient(to right, #f4a261, #e76f51);
+            background: linear-gradient(to right, var(--accent-orange), var(--accent-red));
             margin: 2rem auto;
             animation: fadeInUp 1s ease 0.4s backwards;
         }
@@ -212,14 +247,14 @@
         .credential-value {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #f4a261;
+            color: var(--accent-orange);
             letter-spacing: 1px;
         }
         
         .hero-tagline {
             font-size: 1.8rem;
             font-style: italic;
-            color: #f4a261;
+            color: var(--accent-orange);
             margin: 3rem 0;
             font-weight: 300;
             letter-spacing: 2px;
@@ -236,7 +271,7 @@
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
             color: white;
             padding: 1.3rem 3.5rem;
             text-decoration: none;
@@ -251,8 +286,8 @@
         
         .cta-button-secondary {
             background: transparent;
-            border: 2px solid #f4a261;
-            color: #f4a261;
+            border: 2px solid var(--accent-orange);
+            color: var(--accent-orange);
             box-shadow: none;
         }
         
@@ -261,10 +296,10 @@
             box-shadow: 0 15px 45px rgba(244, 162, 97, 0.6);
         }
         
-        /* Investment Solutions Section */
+        /* Investment Solutions */
         .investment-solutions {
             padding: 120px 3rem;
-            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+            background: linear-gradient(to bottom, var(--bg-light) 0%, #ffffff 50%, var(--bg-light) 100%);
         }
         
         .container {
@@ -276,7 +311,7 @@
             text-align: center;
             font-size: 3rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #1e3455 0%, #2d4a73 100%);
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -287,18 +322,16 @@
         
         .section-subtitle {
             text-align: center;
-            color: #666;
+            color: var(--text-light);
             font-size: 1.2rem;
             margin-bottom: 5rem;
             font-weight: 300;
-            letter-spacing: 1px;
         }
         
         .investment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 3rem;
-            margin-bottom: 4rem;
         }
         
         .investment-card {
@@ -306,7 +339,7 @@
             padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s;
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
@@ -319,7 +352,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, #f4a261, #e76f51);
+            background: linear-gradient(to right, var(--accent-orange), var(--accent-red));
         }
         
         .investment-card:hover {
@@ -331,19 +364,11 @@
         .investment-icon {
             font-size: 4rem;
             margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-        
-        .investment-card h3 {
-            color: #1e3455;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            font-weight: 700;
         }
         
         .investment-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
             color: white;
             padding: 0.4rem 1rem;
             border-radius: 20px;
@@ -353,11 +378,11 @@
             letter-spacing: 0.5px;
         }
         
-        .investment-card p {
-            color: #555;
-            line-height: 1.9;
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
+        .investment-card h3 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
         }
         
         .investment-features {
@@ -367,7 +392,7 @@
         
         .investment-features li {
             padding: 0.7rem 0;
-            color: #666;
+            color: var(--text-light);
             border-bottom: 1px solid #f0f0f0;
             display: flex;
             align-items: center;
@@ -376,70 +401,48 @@
         
         .investment-features li:before {
             content: '✓';
-            color: #f4a261;
+            color: var(--accent-orange);
             font-weight: bold;
             font-size: 1.2rem;
         }
         
-        /* Why Choose Us Section */
-        .why-choose {
-            padding: 100px 3rem;
-            background: linear-gradient(135deg, #1e3455 0%, #2d4a73 100%);
-            color: white;
-        }
-        
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-        
-        .why-card {
-            background: rgba(255,255,255,0.08);
-            padding: 2.5rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(244, 162, 97, 0.2);
-            transition: all 0.3s;
-        }
-        
-        .why-card:hover {
-            background: rgba(255,255,255,0.12);
-            transform: translateY(-10px);
-            border-color: rgba(244, 162, 97, 0.5);
-        }
-        
-        .why-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #f4a261;
-        }
-        
-        .why-card p {
-            color: rgba(255,255,255,0.85);
-            line-height: 1.8;
-        }
-        
         /* Founder Section */
         .founder {
-            padding: 100px 3rem;
+            padding: 120px 3rem;
             background: white;
-            text-align: center;
+        }
+        
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .founder-image-container {
+            position: relative;
+        }
+        
+        .founder-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        
+        .founder-image:hover {
+            transform: scale(1.02);
         }
         
         .founder-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem;
-            background: linear-gradient(135deg, rgba(244, 162, 97, 0.05) 0%, rgba(231, 111, 81, 0.05) 100%);
-            border-radius: 20px;
-            border: 2px solid rgba(244, 162, 97, 0.2);
+            padding: 2rem;
         }
         
         .founder-label {
-            font-size: 1.1rem;
-            color: #f4a261;
+            font-size: 1rem;
+            color: var(--accent-orange);
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -448,55 +451,107 @@
         
         .founder-name {
             font-size: 3.5rem;
-            background: linear-gradient(to right, #1e3455, #2d4a73);
+            background: linear-gradient(to right, var(--primary-navy), var(--secondary-navy));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 900;
             margin-bottom: 2rem;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
         
         .founder-quote {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-style: italic;
-            color: #555;
+            color: var(--text-light);
             line-height: 2;
-            padding: 2rem;
-            border-left: 4px solid #f4a261;
+            padding-left: 2rem;
+            border-left: 4px solid var(--accent-orange);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 3rem;
+            background: var(--bg-light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .testimonial-card {
             background: white;
-            border-radius: 10px;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(244, 162, 97, 0.15);
+        }
+        
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-info h4 {
+            color: var(--primary-navy);
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .testimonial-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
         
         /* Stats Section */
         .stats {
-            background: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
             color: white;
             padding: 100px 3rem;
             position: relative;
             overflow: hidden;
-        }
-        
-        .stats::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
-        }
-        
-        .stats::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
         }
         
         .stats-grid {
@@ -524,161 +579,280 @@
             background: rgba(255,255,255,0.25);
         }
         
-        .stat-item h3 {
+        .stat-number {
             font-size: 4rem;
             margin-bottom: 0.8rem;
             font-weight: 900;
             text-shadow: 0 2px 15px rgba(0,0,0,0.2);
         }
         
-        .stat-item p {
+        .stat-label {
             font-size: 1.3rem;
             opacity: 0.95;
             font-weight: 500;
-            letter-spacing: 0.5px;
         }
         
-        /* Process Section */
-        .process {
+        /* FAQ Section */
+        .faq {
             padding: 100px 3rem;
             background: white;
         }
         
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+        .faq-container {
+            max-width: 900px;
+            margin: 4rem auto 0;
         }
         
-        .process-step {
-            text-align: center;
+        .faq-item {
+            background: white;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.15);
+        }
+        
+        .faq-question {
             padding: 2rem;
-            position: relative;
-        }
-        
-        .step-number {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
-            color: white;
-            border-radius: 50%;
+            cursor: pointer;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.3);
+            background: linear-gradient(135deg, rgba(244, 162, 97, 0.05) 0%, rgba(231, 111, 81, 0.05) 100%);
+            transition: all 0.3s;
         }
         
-        .process-step h4 {
-            font-size: 1.4rem;
-            color: #1e3455;
-            margin-bottom: 1rem;
+        .faq-question:hover {
+            background: linear-gradient(135deg, rgba(244, 162, 97, 0.1) 0%, rgba(231, 111, 81, 0.1) 100%);
         }
         
-        .process-step p {
-            color: #666;
+        .faq-question h4 {
+            color: var(--primary-navy);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .faq-icon {
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 2rem 2rem;
+            color: var(--text-light);
             line-height: 1.8;
         }
         
-        /* Contact Section */
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* Contact Form */
         .contact {
             padding: 100px 3rem;
-            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+            background: var(--bg-light);
         }
         
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
         }
         
-        .contact-info {
-            margin-top: 3rem;
+        .contact-form {
             background: white;
-            padding: 4rem;
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            border: 2px solid rgba(244, 162, 97, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.4);
+        }
+        
+        .contact-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
         
         .contact-item {
-            margin: 2.5rem 0;
-            font-size: 1.2rem;
+            background: white;
             padding: 2rem;
-            background: linear-gradient(135deg, rgba(244, 162, 97, 0.05) 0%, rgba(231, 111, 81, 0.05) 100%);
             border-radius: 15px;
-            border-left: 5px solid #f4a261;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--accent-orange);
             transition: all 0.3s;
         }
         
         .contact-item:hover {
-            transform: translateX(15px);
-            box-shadow: 0 8px 20px rgba(244, 162, 97, 0.2);
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(244, 162, 97, 0.2);
         }
         
-        .contact-item strong {
-            color: #f4a261;
-            font-size: 1.3rem;
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
+        .contact-item i {
+            color: var(--accent-orange);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item h4 {
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item p {
+            color: var(--text-light);
         }
         
         .contact-item a {
-            color: #1e3455;
+            color: var(--text-light);
             text-decoration: none;
             transition: color 0.3s;
-            font-weight: 500;
         }
         
         .contact-item a:hover {
-            color: #f4a261;
+            color: var(--accent-orange);
         }
         
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #1e3455 0%, #2d4a73 100%);
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
             color: white;
-            text-align: center;
-            padding: 4rem 3rem;
-            border-top: 3px solid #f4a261;
+            padding: 4rem 3rem 2rem;
+            border-top: 3px solid var(--accent-orange);
         }
         
-        footer p {
-            opacity: 0.9;
-            font-size: 1.05rem;
-            margin: 0.8rem 0;
-            line-height: 1.8;
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about h3 {
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h4 {
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            padding-left: 10px;
         }
         
         .footer-credentials {
-            margin: 1.5rem 0;
-            padding: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
             background: rgba(244, 162, 97, 0.1);
             border-radius: 10px;
-            display: inline-block;
+            text-align: center;
         }
         
         .footer-credentials strong {
-            color: #f4a261;
-            font-weight: 700;
+            color: var(--accent-orange);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
         .footer-tagline {
-            color: #f4a261;
+            color: var(--accent-orange);
             font-weight: 700;
-            font-size: 1.3rem;
-            margin-top: 1.5rem;
-            letter-spacing: 2px;
+            font-size: 1.2rem;
+            margin-top: 1rem;
             font-style: italic;
         }
         
         /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
@@ -690,16 +864,25 @@
             .hero-subtitle { font-size: 1.1rem; letter-spacing: 2px; }
             .section-title { font-size: 2.2rem; }
             .founder-name { font-size: 2.5rem; }
-            .stat-item h3 { font-size: 3rem; }
+            .stat-number { font-size: 3rem; }
             .investment-grid { grid-template-columns: 1fr; }
             .cta-buttons { flex-direction: column; }
             .nav-links { gap: 1rem; font-size: 0.95rem; }
             .hero-credentials { flex-direction: column; gap: 1.5rem; }
             .hero-logo-icon { width: 120px; height: 120px; }
+            .founder-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919035604120?text=Hello%20Shreejit%20Ventures,%20I%20would%20like%20to%20know%20more%20about%20your%20HNI%20wealth%20management%20services" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Header -->
     <header>
         <nav>
@@ -710,8 +893,9 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#solutions">Solutions</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#founder">Leadership</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -749,7 +933,7 @@
         </div>
     </section>
 
-    <!-- Investment Solutions Section -->
+    <!-- Investment Solutions -->
     <section class="investment-solutions" id="solutions">
         <div class="container">
             <h2 class="section-title">Premium Investment Solutions</h2>
@@ -801,49 +985,68 @@
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="why-choose">
+    <!-- Founder Section -->
+    <section class="founder" id="founder">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Why HNI Clients Choose Us</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Unparalleled expertise and personalized service</p>
+            <h2 class="section-title">Meet Our Founder</h2>
+            <p class="section-subtitle">Visionary leadership driving excellence in wealth management</p>
             
-            <div class="why-grid">
-                <div class="why-card">
-                    <h4>🎯 HNI-Focused Approach</h4>
-                    <p>Specialized strategies designed exclusively for high net worth individuals with minimum ticket sizes and premium service standards.</p>
+            <div class="founder-grid">
+                <div class="founder-image-container">
+                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-13T07-57-21-418Z-97d09abf-chat-image-1765612641398-0.jpg" alt="Amit Bohra" class="founder-image">
                 </div>
-                <div class="why-card">
-                    <h4>🔒 Confidentiality & Trust</h4>
-                    <p>Complete discretion and privacy in all financial dealings with secure, compliant wealth management practices.</p>
-                </div>
-                <div class="why-card">
-                    <h4>📈 Proven Track Record</h4>
-                    <p>₹12 Crores in AUM with 97 satisfied HNI clients who trust us with their wealth creation journey.</p>
-                </div>
-                <div class="why-card">
-                    <h4>🤝 Personalized Service</h4>
-                    <p>Dedicated relationship manager and customized investment solutions aligned with your unique financial goals.</p>
-                </div>
-                <div class="why-card">
-                    <h4>🌐 Diversified Portfolio</h4>
-                    <p>Access to multiple asset classes including equities, debt, alternatives, and structured products.</p>
-                </div>
-                <div class="why-card">
-                    <h4>📊 Transparent Reporting</h4>
-                    <p>Regular performance updates, detailed analytics, and comprehensive portfolio reviews for complete visibility.</p>
+                
+                <div class="founder-content">
+                    <p class="founder-label">Founder & Managing Partner</p>
+                    <h3 class="founder-name">AMIT BOHRA</h3>
+                    <p class="founder-quote">"At Shreejit Ventures LLP, we understand that High Net Worth Individuals require more than just investment advice—they need a trusted partner who can navigate complex financial landscapes, preserve wealth across generations, and unlock exclusive opportunities. Our commitment is to deliver bespoke wealth management solutions with the highest standards of integrity, confidentiality, and performance."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Founder Section -->
-    <section class="founder" id="about">
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title">Leadership</h2>
-            <div class="founder-content">
-                <p class="founder-label">Founder & Managing Partner</p>
-                <h3 class="founder-name">AMIT BOHRA</h3>
-                <p class="founder-quote">"At Shreejit Ventures LLP, we understand that High Net Worth Individuals require more than just investment advice—they need a trusted partner who can navigate complex financial landscapes, preserve wealth across generations, and unlock exclusive opportunities. Our commitment is to deliver bespoke wealth management solutions with the highest standards of integrity, confidentiality, and performance."</p>
+            <h2 class="section-title">Client Success Stories</h2>
+            <p class="section-subtitle">Trusted by HNI clients since November 2024</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Shreejit Ventures transformed my investment approach. Their personalized PMS strategy delivered exceptional returns while managing risk effectively. The team's market insights are invaluable.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RS</div>
+                        <div class="testimonial-info">
+                            <h4>Mr. R.S.</h4>
+                            <p>Entrepreneur, Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">The level of professionalism and confidentiality at Shreejit Ventures is unmatched. They understood my wealth preservation goals and crafted a perfect AIF portfolio for long-term growth.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AK</div>
+                        <div class="testimonial-info">
+                            <h4>Mrs. A.K.</h4>
+                            <p>Business Owner, Ahmedabad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Amit and his team provide clarity in volatile markets. Their disciplined approach to portfolio rebalancing helped me navigate recent corrections with confidence. Highly recommended for serious investors.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">VP</div>
+                        <div class="testimonial-info">
+                            <h4>Mr. V.P.</h4>
+                            <p>Senior Executive, Bangalore</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -854,47 +1057,98 @@
             <h2 class="section-title" style="color: white; margin-bottom: 3rem;">Our Impact</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>97</h3>
-                    <p>HNI Clients</p>
+                    <div class="stat-number" data-target="97">0</div>
+                    <div class="stat-label">HNI Clients</div>
                 </div>
                 <div class="stat-item">
-                    <h3>₹12 Cr</h3>
-                    <p>Assets Under Management</p>
+                    <div class="stat-number">₹12 Cr</div>
+                    <div class="stat-label">Assets Under Management</div>
                 </div>
                 <div class="stat-item">
-                    <h3>77%</h3>
-                    <p>Client Satisfaction</p>
+                    <div class="stat-number" data-target="77">0</div>
+                    <div class="stat-label">Client Satisfaction</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process" id="process">
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
         <div class="container">
-            <h2 class="section-title">Our Wealth Management Process</h2>
-            <p class="section-subtitle">A systematic approach to building and preserving your wealth</p>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about our HNI wealth management services</p>
             
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h4>Discovery & Analysis</h4>
-                    <p>Comprehensive assessment of your financial situation, goals, risk profile, and investment preferences.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is the minimum investment required for PMS?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            The minimum investment for Portfolio Management Services (PMS) is ₹50 lakhs as per SEBI regulations. This allows for personalized portfolio construction with direct equity ownership and dedicated portfolio management.
+                        </div>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h4>Strategy Design</h4>
-                    <p>Customized investment strategy across Mutual Funds, PMS, and AIF based on your unique requirements.</p>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How is AIF different from Mutual Funds?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Alternative Investment Funds (AIFs) are privately pooled investment vehicles for sophisticated investors with a minimum investment of ₹1 crore. Unlike mutual funds, AIFs offer access to alternative strategies including private equity, venture capital, hedge funds, and real estate, with potentially higher returns and different risk profiles.
+                        </div>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h4>Implementation</h4>
-                    <p>Seamless execution of investment plan with access to premium products and exclusive opportunities.</p>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What makes Shreejit Ventures different from other wealth managers?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We specialize exclusively in HNI wealth management with personalized service, complete confidentiality, and access to premium investment products. Our AMFI and APMI registrations ensure regulatory compliance, while our founder-led approach guarantees dedicated attention to each client's unique financial goals.
+                        </div>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h4>Monitoring & Review</h4>
-                    <p>Continuous portfolio monitoring, regular performance reviews, and proactive rebalancing.</p>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How often will I receive portfolio updates?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We provide monthly portfolio statements, quarterly performance reviews, and annual comprehensive reports. Additionally, you have 24/7 access to your portfolio through our secure client portal, and our team is always available for personalized consultations.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can I invest in Mutual Funds with smaller amounts?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! Mutual Funds have no minimum investment restrictions. You can start with SIPs as low as ₹500 per month or make lumpsum investments of any amount. We help you select the best-performing funds aligned with your risk profile and financial goals.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is your fee structure?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our fee structure varies based on the service: Mutual Funds are commission-based from AMCs, PMS typically charges 1.5-2.5% of AUM plus performance fees, and AIF fees depend on the specific fund structure. We maintain complete transparency and discuss all fees upfront during consultation.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -904,22 +1158,67 @@
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Begin Your Wealth Journey</h2>
-            <p class="section-subtitle">Connect with us for a confidential consultation</p>
-            <div class="contact-content">
-                <div class="contact-info">
+            <p class="section-subtitle">Schedule a confidential consultation with our wealth management experts</p>
+            
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3 style="color: var(--primary-navy); margin-bottom: 2rem;">Request a Consultation</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Interested In *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select Service</option>
+                                <option value="mutual-funds">Mutual Funds</option>
+                                <option value="pms">Portfolio Management Services (PMS)</option>
+                                <option value="aif">Alternative Investment Funds (AIF)</option>
+                                <option value="consultation">General Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Schedule Consultation</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-box">
                     <div class="contact-item">
-                        <strong>📧 Email</strong>
-                        <a href="mailto:shreejitventures@outlook.com">shreejitventures@outlook.com</a>
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:shreejitventures@outlook.com">shreejitventures@outlook.com</a></p>
                     </div>
+
                     <div class="contact-item">
-                        <strong>📱 Phone</strong>
-                        <a href="tel:+919035604120">+91-9035604120</a>
+                        <i class="fas fa-phone"></i>
+                        <h4>Call Us</h4>
+                        <p><a href="tel:+919035604120">+91-9035604120</a></p>
                     </div>
+
                     <div class="contact-item">
-                        <strong>📍 Office Address</strong>
-                        B-225, Advance Business Park,<br>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Visit Us</h4>
+                        <p>B-225, Advance Business Park,<br>
                         Shahibaug, Ahmedabad – 380004<br>
-                        Gujarat, India
+                        Gujarat, India</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/919035604120" target="_blank">Chat with us instantly</a></p>
                     </div>
                 </div>
             </div>
@@ -928,19 +1227,130 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Shreejit Ventures LLP. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>SHREEJIT VENTURES LLP</h3>
+                <p style="color: rgba(255,255,255,0.8); margin: 1rem 0;">Elite wealth management for High Net Worth Individuals. Specializing in Mutual Funds, PMS, and AIF solutions with personalized service and complete confidentiality.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#solutions">Investment Solutions</a></li>
+                    <li><a href="#founder">Leadership</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms & Conditions</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="footer-credentials">
             <p><strong>AMFI Registered Mutual Fund Distributor</strong><br>ARN: 321993</p>
-            <p><strong>APMI Associate Member</strong><br>Association of Portfolio Managers in India<br>APRN: 05155</p>
+            <p style="margin-top: 1rem;"><strong>APMI Associate Member</strong><br>Association of Portfolio Managers in India<br>APRN: 05155</p>
         </div>
-        <p>Serving HNI Clients Across India with Excellence</p>
-        <p class="footer-tagline">Turning Visions Into Value</p>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Shreejit Ventures LLP. All rights reserved.</p>
+            <p>Serving HNI Clients Across India with Excellence</p>
+            <p class="footer-tagline">Turning Visions Into Value</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Investment in securities market are subject to market risks. Read all the related documents carefully before investing.</p>
+        </div>
     </footer>
 
     <script>
-        console.log('Shreejit Ventures LLP - Elite HNI Wealth Management');
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Animated Counter for Stats
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    element.textContent = target + '%';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + '%';
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for Stats Animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number[data-target]');
+                    counters.forEach(counter => animateCounter(counter));
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create WhatsApp message
+            const message = `New Consultation Request from Website:%0A%0AName: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.phone}%0AInterested In: ${data.service}%0AMessage: ${data.message || 'N/A'}`;
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/919035604120?text=${message}`, '_blank');
+            
+            // Reset form
+            this.reset();
+            alert('Thank you! We will contact you shortly.');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        console.log('Shreejit Ventures LLP - Premium HNI Platform Loaded');
         console.log('AMFI ARN: 321993 | APMI APRN: 05155');
-        console.log('Clean URL Version - Dec 12, 2025');
+        console.log('Full Package: FAQ + Contact Form + WhatsApp + Testimonials + Animated Stats');
     </script>
 </body>
 </html>
