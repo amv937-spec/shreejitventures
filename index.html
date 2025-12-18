@@ -553,12 +553,29 @@
         .founder-image {
             width: 100%;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
             transition: transform 0.3s;
+            border: 3px solid rgba(244, 162, 97, 0.2);
         }
         
         .founder-image:hover {
             transform: scale(1.02);
+            box-shadow: 0 30px 80px rgba(244, 162, 97, 0.3);
+        }
+        
+        .founder-badge {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.4);
+            white-space: nowrap;
         }
         
         .founder-content {
@@ -996,6 +1013,7 @@
             .whatsapp-float { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; }
             .why-grid { grid-template-columns: 1fr; }
             .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .founder-badge { font-size: 0.9rem; padding: 0.8rem 1.5rem; }
         }
     </style>
 </head>
@@ -1183,11 +1201,12 @@
     <section class="founder" id="founder">
         <div class="container">
             <h2 class="section-title">Meet Our Founder</h2>
-            <p class="section-subtitle">Visionary leadership driving excellence in wealth management</p>
+            <p class="section-subtitle">The face of trust and excellence in HNI wealth management</p>
             
             <div class="founder-grid">
                 <div class="founder-image-container">
-                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-13T07-57-21-418Z-97d09abf-chat-image-1765612641398-0.jpg" alt="Amit Bohra" class="founder-image">
+                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-18T04-45-17-208Z-5f215344-chat-image-1766033117190-0.jpg" alt="Amit Bohra - Founder, Shreejit Ventures LLP" class="founder-image">
+                    <div class="founder-badge">Amit Bohra</div>
                 </div>
                 
                 <div class="founder-content">
@@ -1530,10 +1549,9 @@
             });
         });
 
-        console.log('Shreejit Ventures LLP - ULTIMATE HNI Platform');
-        console.log('✅ Why Choose Us Section Added');
-        console.log('✅ Trust Badges Added');
-        console.log('✅ Enhanced Premium Design');
+        console.log('Shreejit Ventures LLP - FINAL TRUST-BUILDING VERSION');
+        console.log('✅ Professional Founder Photo with Office Branding');
+        console.log('✅ Trust Badge: "Amit Bohra" displayed prominently');
     </script>
 </body>
 </html>
