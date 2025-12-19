@@ -37,6 +37,204 @@
             font-family: 'Playfair Display', serif;
         }
         
+        /* Lead Capture Popup */
+        .lead-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .lead-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lead-popup {
+            background: white;
+            border-radius: 25px;
+            max-width: 550px;
+            width: 90%;
+            padding: 3rem;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            transform: scale(0.9) translateY(30px);
+            transition: all 0.3s;
+        }
+        
+        .lead-popup-overlay.active .lead-popup {
+            transform: scale(1) translateY(0);
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .popup-close:hover {
+            background: var(--bg-light);
+            color: var(--accent-red);
+            transform: rotate(90deg);
+        }
+        
+        .popup-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.3);
+        }
+        
+        .popup-logo img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        .popup-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        
+        .popup-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        
+        .popup-benefits {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+        
+        .popup-benefits ul {
+            list-style: none;
+        }
+        
+        .popup-benefits li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .popup-benefits li:before {
+            content: '✓';
+            color: var(--accent-orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .popup-input {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .popup-input:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+        
+        .popup-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .popup-btn {
+            flex: 1;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .popup-btn-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+        
+        .popup-btn-whatsapp:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        .popup-btn-email {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
+            color: white;
+        }
+        
+        .popup-btn-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(244, 162, 97, 0.4);
+        }
+        
+        .popup-skip {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .popup-skip:hover {
+            color: var(--accent-orange);
+        }
+        
         /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
@@ -1014,10 +1212,52 @@
             .why-grid { grid-template-columns: 1fr; }
             .trust-grid { grid-template-columns: repeat(2, 1fr); }
             .founder-badge { font-size: 0.9rem; padding: 0.8rem 1.5rem; }
+            .lead-popup { padding: 2rem; }
+            .popup-title { font-size: 1.5rem; }
+            .popup-buttons { flex-direction: column; }
         }
     </style>
 </head>
 <body>
+    <!-- Lead Capture Popup -->
+    <div class="lead-popup-overlay" id="leadPopup">
+        <div class="lead-popup">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            
+            <div class="popup-logo">
+                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-12T04-42-08-144Z-2f0f929a-chat-image-1765514528126-0.jpg" alt="Shreejit Ventures">
+            </div>
+            
+            <h3 class="popup-title">Welcome to Shreejit Ventures!</h3>
+            <p class="popup-subtitle">Get exclusive HNI wealth management insights</p>
+            
+            <div class="popup-benefits">
+                <ul>
+                    <li>Free portfolio review worth ₹5,000</li>
+                    <li>Personalized investment strategy</li>
+                    <li>Access to premium PMS & AIF opportunities</li>
+                </ul>
+            </div>
+            
+            <form class="popup-form" id="popupForm">
+                <input type="text" class="popup-input" id="popupName" placeholder="Your Name *" required>
+                <input type="tel" class="popup-input" id="popupPhone" placeholder="Phone Number *" required>
+                <input type="email" class="popup-input" id="popupEmail" placeholder="Email Address">
+                
+                <div class="popup-buttons">
+                    <button type="button" class="popup-btn popup-btn-whatsapp" onclick="submitViaWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> Connect on WhatsApp
+                    </button>
+                    <button type="button" class="popup-btn popup-btn-email" onclick="submitViaEmail()">
+                        <i class="fas fa-envelope"></i> Send via Email
+                    </button>
+                </div>
+            </form>
+            
+            <p class="popup-skip" onclick="closePopup()">I'll explore first</p>
+        </div>
+    </div>
+
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/919035604120?text=Hello%20Shreejit%20Ventures,%20I%20would%20like%20to%20know%20more%20about%20your%20HNI%20wealth%20management%20services" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
@@ -1064,7 +1304,7 @@
                 </div>
             </div>
             
-            <p class="hero-tagline">Turning Visions Into Value</p>
+            <p class="hero-tagline">We Build Portfolios to Nurture and Grow</p>
             
             <div class="cta-buttons">
                 <a href="#contact" class="cta-button">Schedule Consultation</a>
@@ -1431,7 +1671,7 @@
         <div class="footer-content">
             <div class="footer-about">
                 <h3>SHREEJIT VENTURES LLP</h3>
-                <p style="color: rgba(255,255,255,0.8); margin: 1rem 0;">Elite wealth management for High Net Worth Individuals. Specializing in Mutual Funds, PMS, and AIF solutions with personalized service and complete confidentiality.</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 1rem 0;">Elite wealth management for High Net Worth Individuals. We build portfolios to nurture and grow your wealth across generations.</p>
             </div>
 
             <div class="footer-links">
@@ -1464,12 +1704,62 @@
         <div class="footer-bottom">
             <p>&copy; 2025 Shreejit Ventures LLP. All rights reserved.</p>
             <p>Serving HNI Clients Across India with Excellence</p>
-            <p class="footer-tagline">Turning Visions Into Value</p>
+            <p class="footer-tagline">We Build Portfolios to Nurture and Grow</p>
             <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Investment in securities market are subject to market risks. Read all the related documents carefully before investing.</p>
         </div>
     </footer>
 
     <script>
+        // Lead Capture Popup - Shows after 3 seconds
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('leadPopup').classList.add('active');
+            }, 3000);
+        });
+
+        function closePopup() {
+            document.getElementById('leadPopup').classList.remove('active');
+            localStorage.setItem('popupShown', 'true');
+        }
+
+        function submitViaWhatsApp() {
+            const name = document.getElementById('popupName').value;
+            const phone = document.getElementById('popupPhone').value;
+            const email = document.getElementById('popupEmail').value;
+            
+            if (!name || !phone) {
+                alert('Please fill in your name and phone number');
+                return;
+            }
+            
+            const message = `New Lead from Website:%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email || 'Not provided'}%0A%0AI'm interested in HNI wealth management services.`;
+            
+            window.open(`https://wa.me/919035604120?text=${message}`, '_blank');
+            closePopup();
+        }
+
+        function submitViaEmail() {
+            const name = document.getElementById('popupName').value;
+            const phone = document.getElementById('popupPhone').value;
+            const email = document.getElementById('popupEmail').value;
+            
+            if (!name || !phone) {
+                alert('Please fill in your name and phone number');
+                return;
+            }
+            
+            const subject = `New Lead: ${name}`;
+            const body = `New Lead from Website:%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email || 'Not provided'}%0A%0AI'm interested in HNI wealth management services.`;
+            
+            window.location.href = `mailto:shreejitventures@outlook.com?subject=${subject}&body=${body}`;
+            closePopup();
+        }
+
+        // Check if popup was already shown
+        if (localStorage.getItem('popupShown')) {
+            // Don't show popup if already shown in this session
+        }
+
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
@@ -1549,9 +1839,10 @@
             });
         });
 
-        console.log('Shreejit Ventures LLP - FINAL TRUST-BUILDING VERSION');
-        console.log('✅ Professional Founder Photo with Office Branding');
-        console.log('✅ Trust Badge: "Amit Bohra" displayed prominently');
+        console.log('Shreejit Ventures LLP - LEAD GENERATION VERSION');
+        console.log('✅ Lead Capture Popup Active');
+        console.log('✅ WhatsApp & Email Integration');
+        console.log('✅ Updated Tagline: We Build Portfolios to Nurture and Grow');
     </script>
 </body>
 </html>
