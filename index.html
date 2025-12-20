@@ -729,6 +729,92 @@
             font-size: 1.05rem;
         }
         
+        /* Investment Philosophy Section */
+        .philosophy {
+            padding: 120px 3rem;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .philosophy::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .philosophy-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .philosophy-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+        
+        .philosophy-intro h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+        
+        .philosophy-intro p {
+            font-size: 1.3rem;
+            line-height: 2;
+            opacity: 0.95;
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .philosophy-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.4s;
+            text-align: center;
+        }
+        
+        .philosophy-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .philosophy-number {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+        
+        .philosophy-card h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .philosophy-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
         /* Founder Section */
         .founder {
             padding: 120px 3rem;
@@ -883,53 +969,6 @@
         .testimonial-info p {
             color: var(--text-light);
             font-size: 0.9rem;
-        }
-        
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
-            color: white;
-            padding: 100px 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .stat-item {
-            background: rgba(255,255,255,0.15);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-            border: 2px solid rgba(255,255,255,0.25);
-        }
-        
-        .stat-item:hover {
-            transform: scale(1.08);
-            background: rgba(255,255,255,0.25);
-        }
-        
-        .stat-number {
-            font-size: 4rem;
-            margin-bottom: 0.8rem;
-            font-weight: 900;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.2);
-        }
-        
-        .stat-label {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            font-weight: 500;
         }
         
         /* FAQ Section */
@@ -1199,7 +1238,6 @@
             .hero-subtitle { font-size: 1.1rem; letter-spacing: 2px; }
             .section-title { font-size: 2.2rem; }
             .founder-name { font-size: 2.5rem; }
-            .stat-number { font-size: 3rem; }
             .investment-grid { grid-template-columns: 1fr; }
             .cta-buttons { flex-direction: column; }
             .nav-links { gap: 1rem; font-size: 0.95rem; }
@@ -1215,6 +1253,8 @@
             .lead-popup { padding: 2rem; }
             .popup-title { font-size: 1.5rem; }
             .popup-buttons { flex-direction: column; }
+            .philosophy-grid { grid-template-columns: 1fr; }
+            .philosophy-intro h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -1413,7 +1453,7 @@
                 <div class="why-card">
                     <div class="why-icon">📈</div>
                     <h4>Proven Track Record</h4>
-                    <p>₹12 Crores in AUM with 97 satisfied HNI clients who trust us with their wealth creation and preservation journey since November 2024.</p>
+                    <p>Trusted by discerning HNI clients who value our commitment to wealth creation and preservation journey since November 2024.</p>
                 </div>
 
                 <div class="why-card">
@@ -1432,6 +1472,42 @@
                     <div class="why-icon">📊</div>
                     <h4>Transparent Reporting</h4>
                     <p>Monthly statements, quarterly reviews, annual reports, and 24/7 secure portal access with real-time portfolio tracking and analytics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Philosophy -->
+    <section class="philosophy">
+        <div class="philosophy-content">
+            <div class="philosophy-intro">
+                <h2>Our Investment Philosophy</h2>
+                <p>At Shreejit Ventures, we believe in building wealth that lasts generations. Our time-tested approach combines disciplined research, risk management, and personalized strategies to create portfolios that nurture and grow.</p>
+            </div>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="philosophy-number">01</div>
+                    <h4>Long-Term Vision</h4>
+                    <p>We focus on sustainable wealth creation over decades, not quarters. Every investment decision is made with your long-term financial goals in mind.</p>
+                </div>
+
+                <div class="philosophy-card">
+                    <div class="philosophy-number">02</div>
+                    <h4>Risk-Adjusted Returns</h4>
+                    <p>Superior returns mean nothing without proper risk management. We optimize portfolios to deliver consistent performance across market cycles.</p>
+                </div>
+
+                <div class="philosophy-card">
+                    <div class="philosophy-number">03</div>
+                    <h4>Disciplined Research</h4>
+                    <p>Every investment undergoes rigorous fundamental analysis. We invest in quality businesses and funds with proven track records and strong fundamentals.</p>
+                </div>
+
+                <div class="philosophy-card">
+                    <div class="philosophy-number">04</div>
+                    <h4>Diversification</h4>
+                    <p>True wealth preservation comes from intelligent diversification across asset classes, sectors, and investment vehicles tailored to your risk profile.</p>
                 </div>
             </div>
         </div>
@@ -1499,27 +1575,6 @@
                             <p>Senior Executive, Bangalore</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <h2 class="section-title" style="color: white; margin-bottom: 3rem;">Our Impact</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="97">0</div>
-                    <div class="stat-label">HNI Clients</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">₹12 Cr</div>
-                    <div class="stat-label">Assets Under Management</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="77">0</div>
-                    <div class="stat-label">Client Satisfaction</div>
                 </div>
             </div>
         </div>
@@ -1776,40 +1831,6 @@
             });
         });
 
-        // Animated Counter for Stats
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    element.textContent = target + '%';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + '%';
-                }
-            }, 16);
-        }
-
-        // Intersection Observer for Stats Animation
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.stat-number[data-target]');
-                    counters.forEach(counter => animateCounter(counter));
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
         // Contact Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1839,10 +1860,10 @@
             });
         });
 
-        console.log('Shreejit Ventures LLP - LEAD GENERATION VERSION');
-        console.log('✅ Lead Capture Popup Active');
-        console.log('✅ WhatsApp & Email Integration');
-        console.log('✅ Updated Tagline: We Build Portfolios to Nurture and Grow');
+        console.log('Shreejit Ventures LLP - PHILOSOPHY VERSION');
+        console.log('✅ Stats Section Removed');
+        console.log('✅ Investment Philosophy Section Added');
+        console.log('✅ Focus on Quality over Quantity');
     </script>
 </body>
 </html>
