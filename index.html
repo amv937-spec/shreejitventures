@@ -732,107 +732,74 @@
         /* Investment Philosophy Section */
         .philosophy {
             padding: 120px 3rem;
-            background: white;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
+            color: white;
             position: relative;
+            overflow: hidden;
         }
         
-        .philosophy-hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+        .philosophy::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .philosophy-content {
             max-width: 1400px;
-            margin: 0 auto 5rem;
-            align-items: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
-        .philosophy-text h2 {
+        .philosophy-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 5rem;
+        }
+        
+        .philosophy-intro h2 {
             font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
+            margin-bottom: 1.5rem;
             font-weight: 900;
         }
         
-        .philosophy-text h2 .highlight {
-            color: #4a90e2;
-        }
-        
-        .philosophy-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.9;
-            margin-bottom: 2rem;
-        }
-        
-        .philosophy-principles {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-top: 2rem;
-        }
-        
-        .philosophy-principles h4 {
-            color: var(--primary-navy);
-            margin-bottom: 1.5rem;
+        .philosophy-intro p {
             font-size: 1.3rem;
-        }
-        
-        .philosophy-principles ul {
-            list-style: none;
-        }
-        
-        .philosophy-principles li {
-            padding: 0.7rem 0;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        
-        .philosophy-principles li:before {
-            content: '●';
-            color: #4a90e2;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .philosophy-image {
-            position: relative;
-        }
-        
-        .philosophy-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+            line-height: 2;
+            opacity: 0.95;
         }
         
         .philosophy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
         }
         
         .philosophy-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.15);
             padding: 2.5rem;
             border-radius: 20px;
-            border: 2px solid #e0e0e0;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
             transition: all 0.4s;
             text-align: center;
         }
         
         .philosophy-card:hover {
-            border-color: var(--accent-orange);
+            background: rgba(255, 255, 255, 0.25);
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(244, 162, 97, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
         
         .philosophy-number {
             font-size: 3rem;
             font-weight: 900;
             margin-bottom: 1rem;
-            color: var(--accent-orange);
             opacity: 0.3;
         }
         
@@ -840,19 +807,18 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            color: var(--primary-navy);
         }
         
         .philosophy-card p {
             font-size: 1rem;
             line-height: 1.7;
-            color: var(--text-light);
+            opacity: 0.95;
         }
         
         /* Founder Section */
         .founder {
             padding: 120px 3rem;
-            background: var(--bg-light);
+            background: white;
         }
         
         .founder-grid {
@@ -1343,8 +1309,7 @@
             .popup-title { font-size: 1.5rem; }
             .popup-buttons { flex-direction: column; }
             .philosophy-grid { grid-template-columns: 1fr; }
-            .philosophy-hero { grid-template-columns: 1fr; gap: 3rem; }
-            .philosophy-text h2 { font-size: 2rem; }
+            .philosophy-intro h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -1569,27 +1534,10 @@
 
     <!-- Investment Philosophy -->
     <section class="philosophy">
-        <div class="container">
-            <div class="philosophy-hero">
-                <div class="philosophy-text">
-                    <h2>Investment Philosophy<br>Built on <span class="highlight">Facts & Transparency</span></h2>
-                    <p>Our investment approach is grounded in rigorous research, complete transparency, and unwavering clarity. We believe sophisticated investors deserve unbiased fund selection based purely on factual analysis and proven performance metrics.</p>
-                    <p>Every recommendation is backed by comprehensive due diligence, ensuring our HNI clients receive investment strategies that align with their wealth preservation and growth objectives.</p>
-                    
-                    <div class="philosophy-principles">
-                        <h4>Our Core Principles</h4>
-                        <ul>
-                            <li>Fact-based research with zero bias</li>
-                            <li>Complete transparency in all processes</li>
-                            <li>Clear communication and reporting</li>
-                            <li>Rigorous fund selection criteria</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="philosophy-image">
-                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-27T10-07-20-911Z-b880be54-chat-image-1766830040892-0.jpg" alt="Investment Philosophy">
-                </div>
+        <div class="philosophy-content">
+            <div class="philosophy-intro">
+                <h2>Our Investment Philosophy</h2>
+                <p>At Shreejit Ventures, we believe in building wealth that lasts generations. Our time-tested approach combines disciplined research, risk management, and personalized strategies to create portfolios that nurture and grow.</p>
             </div>
             
             <div class="philosophy-grid">
@@ -1703,10 +1651,10 @@
                     </div>
                     <p class="testimonial-text">"The transparency and fact-based approach to fund selection has consistently delivered exceptional results for our family office. Their global expertise is unmatched."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">RS</div>
+                        <div class="testimonial-avatar">SP</div>
                         <div class="testimonial-info">
-                            <h4>Rajesh Sharma</h4>
-                            <p>Family Office, Mumbai</p>
+                            <h4>Ms. S.P.</h4>
+                            <p>Rajkot - Mumbai</p>
                         </div>
                     </div>
                 </div>
@@ -1721,10 +1669,10 @@
                     </div>
                     <p class="testimonial-text">"Working with this team has transformed our investment strategy. Their rigorous research and unbiased recommendations have significantly enhanced our portfolio performance."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">MC</div>
+                        <div class="testimonial-avatar">SB</div>
                         <div class="testimonial-info">
-                            <h4>Maria Chen</h4>
-                            <p>Private Investor, Singapore</p>
+                            <h4>Mr. S.B.</h4>
+                            <p>Ahmedabad</p>
                         </div>
                     </div>
                 </div>
@@ -1739,10 +1687,10 @@
                     </div>
                     <p class="testimonial-text">"The level of clarity and transparency in their investment process gives us complete confidence. Their global reach has opened new opportunities for our wealth diversification."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">DK</div>
+                        <div class="testimonial-avatar">NK</div>
                         <div class="testimonial-info">
-                            <h4>David Kumar</h4>
-                            <p>Investment Director, London</p>
+                            <h4>Mr. N.K.</h4>
+                            <p>Ahmedabad - Qatar</p>
                         </div>
                     </div>
                 </div>
@@ -2025,10 +1973,10 @@
             });
         });
 
-        console.log('Shreejit Ventures LLP - ELEGANT FINAL VERSION');
-        console.log('✅ Philosophy section with elegant office image');
-        console.log('✅ Updated founder description with 12+ years experience');
-        console.log('✅ Dark styled testimonials with 5-star ratings');
+        console.log('Shreejit Ventures LLP - PROFESSIONAL CLEAN VERSION');
+        console.log('✅ Client names updated to real locations');
+        console.log('✅ Unprofessional image removed from philosophy');
+        console.log('✅ Clean orange gradient philosophy section');
     </script>
 </body>
 </html>
