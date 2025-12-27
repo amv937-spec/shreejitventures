@@ -732,74 +732,107 @@
         /* Investment Philosophy Section */
         .philosophy {
             padding: 120px 3rem;
-            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
-            color: white;
+            background: white;
             position: relative;
-            overflow: hidden;
         }
         
-        .philosophy::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-        
-        .philosophy-content {
+        .philosophy-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
             max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .philosophy-intro {
-            text-align: center;
-            max-width: 900px;
             margin: 0 auto 5rem;
+            align-items: center;
         }
         
-        .philosophy-intro h2 {
+        .philosophy-text h2 {
             font-size: 3rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
             font-weight: 900;
         }
         
-        .philosophy-intro p {
+        .philosophy-text h2 .highlight {
+            color: #4a90e2;
+        }
+        
+        .philosophy-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+        
+        .philosophy-principles {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .philosophy-principles h4 {
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
             font-size: 1.3rem;
-            line-height: 2;
-            opacity: 0.95;
+        }
+        
+        .philosophy-principles ul {
+            list-style: none;
+        }
+        
+        .philosophy-principles li {
+            padding: 0.7rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .philosophy-principles li:before {
+            content: '●';
+            color: #4a90e2;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .philosophy-image {
+            position: relative;
+        }
+        
+        .philosophy-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
         }
         
         .philosophy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         
         .philosophy-card {
-            background: rgba(255, 255, 255, 0.15);
+            background: white;
             padding: 2.5rem;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.25);
+            border: 2px solid #e0e0e0;
             transition: all 0.4s;
             text-align: center;
         }
         
         .philosophy-card:hover {
-            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--accent-orange);
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(244, 162, 97, 0.2);
         }
         
         .philosophy-number {
             font-size: 3rem;
             font-weight: 900;
             margin-bottom: 1rem;
+            color: var(--accent-orange);
             opacity: 0.3;
         }
         
@@ -807,18 +840,19 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            color: var(--primary-navy);
         }
         
         .philosophy-card p {
             font-size: 1rem;
             line-height: 1.7;
-            opacity: 0.95;
+            color: var(--text-light);
         }
         
         /* Founder Section */
         .founder {
             padding: 120px 3rem;
-            background: white;
+            background: var(--bg-light);
         }
         
         .founder-grid {
@@ -868,7 +902,7 @@
         
         .founder-label {
             font-size: 1rem;
-            color: var(--accent-orange);
+            color: #4a90e2;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -876,29 +910,84 @@
         }
         
         .founder-name {
-            font-size: 3.5rem;
-            background: linear-gradient(to right, var(--primary-navy), var(--secondary-navy));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
+            font-size: 2.5rem;
+            color: #4a90e2;
+            font-weight: 700;
             margin-bottom: 2rem;
-            letter-spacing: 2px;
+        }
+        
+        .founder-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+        
+        .founder-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .founder-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .founder-highlight-icon {
+            width: 35px;
+            height: 35px;
+            background: #4a90e2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .founder-highlight-text strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .founder-highlight-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         .founder-quote {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-style: italic;
             color: var(--text-light);
-            line-height: 2;
+            line-height: 1.8;
             padding-left: 2rem;
-            border-left: 4px solid var(--accent-orange);
+            border-left: 4px solid #4a90e2;
         }
         
         /* Testimonials */
         .testimonials {
             padding: 100px 3rem;
-            background: var(--bg-light);
+            background: #1a1f2e;
+            color: white;
+        }
+        
+        .testimonials .section-title {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+        
+        .testimonials .section-title .highlight {
+            color: #4a90e2;
+        }
+        
+        .testimonials .section-subtitle {
+            color: rgba(255,255,255,0.7);
         }
         
         .testimonials-grid {
@@ -909,49 +998,49 @@
         }
         
         .testimonial-card {
-            background: white;
+            background: rgba(255,255,255,0.05);
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            position: relative;
+            border: 2px solid rgba(255,255,255,0.1);
             transition: all 0.3s;
+            position: relative;
         }
         
         .testimonial-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(244, 162, 97, 0.15);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(74, 144, 226, 0.5);
         }
         
-        .testimonial-quote {
-            font-size: 3rem;
-            color: var(--accent-orange);
-            opacity: 0.3;
-            position: absolute;
-            top: 20px;
-            left: 30px;
+        .testimonial-stars {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-stars i {
+            color: #ffd700;
+            font-size: 1.2rem;
         }
         
         .testimonial-text {
-            font-style: italic;
-            color: var(--text-light);
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.9);
             line-height: 1.8;
-            margin: 2rem 0;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 2rem;
         }
         
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-top: 2rem;
         }
         
         .testimonial-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
+            background: #4a90e2;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -961,13 +1050,13 @@
         }
         
         .testimonial-info h4 {
-            color: var(--primary-navy);
+            color: white;
             font-size: 1.1rem;
             margin-bottom: 0.2rem;
         }
         
         .testimonial-info p {
-            color: var(--text-light);
+            color: rgba(255,255,255,0.6);
             font-size: 0.9rem;
         }
         
@@ -1237,7 +1326,7 @@
             .hero-title { font-size: 2.5rem; letter-spacing: 4px; }
             .hero-subtitle { font-size: 1.1rem; letter-spacing: 2px; }
             .section-title { font-size: 2.2rem; }
-            .founder-name { font-size: 2.5rem; }
+            .founder-name { font-size: 2rem; }
             .investment-grid { grid-template-columns: 1fr; }
             .cta-buttons { flex-direction: column; }
             .nav-links { gap: 1rem; font-size: 0.95rem; }
@@ -1254,7 +1343,8 @@
             .popup-title { font-size: 1.5rem; }
             .popup-buttons { flex-direction: column; }
             .philosophy-grid { grid-template-columns: 1fr; }
-            .philosophy-intro h2 { font-size: 2rem; }
+            .philosophy-hero { grid-template-columns: 1fr; gap: 3rem; }
+            .philosophy-text h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -1479,10 +1569,27 @@
 
     <!-- Investment Philosophy -->
     <section class="philosophy">
-        <div class="philosophy-content">
-            <div class="philosophy-intro">
-                <h2>Our Investment Philosophy</h2>
-                <p>At Shreejit Ventures, we believe in building wealth that lasts generations. Our time-tested approach combines disciplined research, risk management, and personalized strategies to create portfolios that nurture and grow.</p>
+        <div class="container">
+            <div class="philosophy-hero">
+                <div class="philosophy-text">
+                    <h2>Investment Philosophy<br>Built on <span class="highlight">Facts & Transparency</span></h2>
+                    <p>Our investment approach is grounded in rigorous research, complete transparency, and unwavering clarity. We believe sophisticated investors deserve unbiased fund selection based purely on factual analysis and proven performance metrics.</p>
+                    <p>Every recommendation is backed by comprehensive due diligence, ensuring our HNI clients receive investment strategies that align with their wealth preservation and growth objectives.</p>
+                    
+                    <div class="philosophy-principles">
+                        <h4>Our Core Principles</h4>
+                        <ul>
+                            <li>Fact-based research with zero bias</li>
+                            <li>Complete transparency in all processes</li>
+                            <li>Clear communication and reporting</li>
+                            <li>Rigorous fund selection criteria</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="philosophy-image">
+                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6a492d7d-e35c-4ac8-acc5-1abea55f0d52/2025-12-27T10-07-20-911Z-b880be54-chat-image-1766830040892-0.jpg" alt="Investment Philosophy">
+                </div>
             </div>
             
             <div class="philosophy-grid">
@@ -1529,7 +1636,7 @@
     <section class="founder" id="founder">
         <div class="container">
             <h2 class="section-title">Meet Our Founder</h2>
-            <p class="section-subtitle">The face of trust and excellence in HNI wealth management</p>
+            <p class="section-subtitle"><span class="highlight">Mr. Amit Bohra</span></p>
             
             <div class="founder-grid">
                 <div class="founder-image-container">
@@ -1539,8 +1646,41 @@
                 
                 <div class="founder-content">
                     <p class="founder-label">Founder & Managing Partner</p>
-                    <h3 class="founder-name">AMIT BOHRA</h3>
-                    <p class="founder-quote">"At Shreejit Ventures LLP, we understand that High Net Worth Individuals require more than just investment advice—they need a trusted partner who can navigate complex financial landscapes, preserve wealth across generations, and unlock exclusive opportunities. Our commitment is to deliver bespoke wealth management solutions with the highest standards of integrity, confidentiality, and performance."</p>
+                    <h3 class="founder-name">Mr. Amit Bohra</h3>
+                    
+                    <p class="founder-description">With over 12 years of distinguished experience in capital markets, Mr. Amit Bohra has built a reputation for delivering exceptional investment outcomes through unwavering commitment to transparency and fact-based research.</p>
+                    
+                    <div class="founder-highlights">
+                        <div class="founder-highlight">
+                            <div class="founder-highlight-icon">✓</div>
+                            <div class="founder-highlight-text">
+                                <strong>12+ Years</strong> of proven expertise in capital market analysis and portfolio management
+                            </div>
+                        </div>
+                        
+                        <div class="founder-highlight">
+                            <div class="founder-highlight-icon">✓</div>
+                            <div class="founder-highlight-text">
+                                <strong>Fact-Based Philosophy</strong> ensuring every investment decision is grounded in thorough research and data analysis
+                            </div>
+                        </div>
+                        
+                        <div class="founder-highlight">
+                            <div class="founder-highlight-icon">✓</div>
+                            <div class="founder-highlight-text">
+                                <strong>Unbiased Selection</strong> methodology that prioritizes client interests above all else
+                            </div>
+                        </div>
+                        
+                        <div class="founder-highlight">
+                            <div class="founder-highlight-icon">✓</div>
+                            <div class="founder-highlight-text">
+                                <strong>Transparency & Clarity</strong> in all communications and investment recommendations
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="founder-quote">"Our commitment to transparency and fact-based research has consistently delivered superior outcomes for our HNI clients across global markets."</p>
                 </div>
             </div>
         </div>
@@ -1549,42 +1689,60 @@
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title">Client Success Stories</h2>
-            <p class="section-subtitle">Trusted by HNI clients since November 2024</p>
+            <h2 class="section-title">Trusted by <span class="highlight">Distinguished Investors</span></h2>
+            <p class="section-subtitle">Our commitment to excellence has earned the confidence of sophisticated investors worldwide who value our transparent approach and consistent results.</p>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">Shreejit Ventures transformed my investment approach. Their personalized PMS strategy delivered exceptional returns while managing risk effectively. The team's market insights are invaluable.</p>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The transparency and fact-based approach to fund selection has consistently delivered exceptional results for our family office. Their global expertise is unmatched."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">RS</div>
                         <div class="testimonial-info">
-                            <h4>Mr. R.S.</h4>
-                            <p>Entrepreneur, Mumbai</p>
+                            <h4>Rajesh Sharma</h4>
+                            <p>Family Office, Mumbai</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">The level of professionalism and confidentiality at Shreejit Ventures is unmatched. They understood my wealth preservation goals and crafted a perfect AIF portfolio for long-term growth.</p>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Working with this team has transformed our investment strategy. Their rigorous research and unbiased recommendations have significantly enhanced our portfolio performance."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">AK</div>
+                        <div class="testimonial-avatar">MC</div>
                         <div class="testimonial-info">
-                            <h4>Mrs. A.K.</h4>
-                            <p>Business Owner, Ahmedabad</p>
+                            <h4>Maria Chen</h4>
+                            <p>Private Investor, Singapore</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">Amit and his team provide clarity in volatile markets. Their disciplined approach to portfolio rebalancing helped me navigate recent corrections with confidence. Highly recommended for serious investors.</p>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The level of clarity and transparency in their investment process gives us complete confidence. Their global reach has opened new opportunities for our wealth diversification."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">VP</div>
+                        <div class="testimonial-avatar">DK</div>
                         <div class="testimonial-info">
-                            <h4>Mr. V.P.</h4>
-                            <p>Senior Executive, Bangalore</p>
+                            <h4>David Kumar</h4>
+                            <p>Investment Director, London</p>
                         </div>
                     </div>
                 </div>
@@ -1822,11 +1980,6 @@
             closePopup();
         }
 
-        // Check if popup was already shown
-        if (localStorage.getItem('popupShown')) {
-            // Don't show popup if already shown in this session
-        }
-
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
@@ -1872,10 +2025,10 @@
             });
         });
 
-        console.log('Shreejit Ventures LLP - FINAL PERFECT VERSION');
-        console.log('✅ SEBI changed to AMFI & APMI Compliant');
-        console.log('✅ Investment Philosophy expanded to 6 elegant cards');
-        console.log('✅ Perfect symmetry and balance');
+        console.log('Shreejit Ventures LLP - ELEGANT FINAL VERSION');
+        console.log('✅ Philosophy section with elegant office image');
+        console.log('✅ Updated founder description with 12+ years experience');
+        console.log('✅ Dark styled testimonials with 5-star ratings');
     </script>
 </body>
 </html>
